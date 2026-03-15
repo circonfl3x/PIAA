@@ -212,20 +212,21 @@ void reset() {
 }
 
 void RunPerformanceTest() {
-  std::cout << "ИССЛЕДОВАНИЕ ВРЕМЕНИ ВЫПОЛНЕНИЯ ОТ РАЗМЕРА КВАДРАТА\n";
-  std::cout << "Рекурсивный бэктрекинг (N-Queens проблема)\n";
-  std::cout << "========================================================\n\n";
+  std::cout << "\033[37m\033[1m\033[4mИССЛЕДОВАНИЕ ВРЕМЕНИ ВЫПОЛНЕНИЯ ОТ РАЗМЕРА КВАДРАТА\033[0m\n";
 
-  std::cout << std::left;
-  std::cout << std::setw(12) << "Размер N\t"  << std::setw(16) << "Время (мкс)\t" 
-            << std::setw(14) << "Решения\t" << std::setw(16) << "Коэф. роста\t" << std::endl;
+  std::cout << std::left
+          << std::setw(14) << "Размер N" << " | " 
+          << std::setw(18) << "Время (мкс)" << " | "
+          << std::setw(20) << "Решения" << " | " 
+          << std::setw(20) << "Коэф. роста" 
+          << std::endl;
             
 
   std::cout << std::string(58, '-') << std::endl;
 
   long long prevTime = 0;
 
-  for (int n = 2; n <= 14; n++) {
+  for (int n = 2; n <= 12; n++) {
     auto start = std::chrono::high_resolution_clock::now();
     int solCount = countSolutions(n);
     auto end = std::chrono::high_resolution_clock::now();
